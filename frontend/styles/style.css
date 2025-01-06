@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid green;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    border: 2px solid pink;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+nav ul {
+    border: 2px solid yellow;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #5c5a5a;
+    border-radius: 5px;
+}
+
+.hero {
+    border: 2px solid aqua;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero button {
+    background-color: #333;
+    color: white;
+    border: 2px solid blue;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.hero button:hover {
+    background-color: #555;
+}
+
+.search-bar {
+    /* display: flex; */
+    border: 2px solid black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+
+}
+
+.category {
+    margin-top: 30px;
+    /* margin: 0 auto; */
+    padding: 0;
+    border: 2px solid red;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+}
+
+.category ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 10px;
+    padding: 0;
+
+}
+
+.category ul li a {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+
+    color: black;
+    /* border: 2px solid salmon; */
+    padding: 5px 10px;
+}
+
+.category ul li a:hover {
+    background-color: #e0dfdf;
+    border-radius: 10px;
+}
+
+.search-bar input {
+    margin-top: 20px;
+    padding: 10px;
+    width: 60%;
+    max-width: 400px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+}
+.search-bar button {
+    border: 2px solid salmon;
+    padding: 5px 10px;
+}
+.search-bar button:hover{
+    border-radius: 10px;
+    color: black;
+    background-color: #ccc;
+    font-weight: 100;
+}
+
+.featured-products {
+    border: 2px solid blue;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.featured-products h2 {
+    border: 2px solid green;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.product p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.product .add-to-cart {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.product .add-to-cart:hover {
+    background-color: #555;
+}
+
+footer {
+    border: 2px solid yellow;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links li a {
+    text-decoration: none;
+    color: white;
+}
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown ul li {
+    margin: 5px 0;
+}
+
+.dropdown ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    display: block;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.dropdown ul li a:hover {
+    background-color: #555;
+}
+
+nav ul li:hover .dropdown {
+    display: block; }
