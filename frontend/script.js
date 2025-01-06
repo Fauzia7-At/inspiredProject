@@ -1,81 +1,48 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const categoryFilter = document.getElementById('category');
-    const productsContainer = document.querySelector('.products-container');
+let cart = [];
 
-    // Fetch and display products
-    function fetchProducts() {
-        fetch('/api/products')
-            .then(response => response.json())
-            .then(products => {
-                displayProducts(products);
-            })
-            .catch(error => {
-                console.error('Error fetching products:', error);
+        function addToCart(productName, price) {
+            const product = { name: productName, price: price };
+            cart.push(product);
+            alert(`${productName} has been added to your cart.`);
+            console.log(cart);
+        }
+
+        function searchProducts(query) {
+            const products = document.querySelectorAll('.product');
+            products.forEach(product => {
+                const name = product.querySelector('h3').innerText.toLowerCase();
+                product.style.display = name.includes(query.toLowerCase()) ? '' : 'none';
             });
-    }
+        }
 
-    // Display products on the page
-    function displayProducts(products) {
-        productsContainer.innerHTML = '';
-        products.forEach(product => {
-            const productDiv = document.createElement('div');
-            productDiv.classList.add('product');
-            productDiv.setAttribute('data-category', product.category);
+        function removeFromCart(productName) {
+            cart = cart.filter(item => item.name !== productName);
+            alert(`${productName} has been removed from your cart.`);
+            console.log(cart);
+        }
 
-            productDiv.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>$${product.price}</p>
-                <button class="add-to-cart">Add to Cart</button>
-            `;
-
-            productsContainer.appendChild(productDiv);
-        });
-
-        addCartFunctionality();
-    }
-
-    // Filter functionality
-    categoryFilter.addEventListener('change', () => {
-        const selectedCategory = categoryFilter.value;
-
-        document.querySelectorAll('.product').forEach(product => {
-            if (selectedCategory === 'all' || product.dataset.category === selectedCategory) {
-                product.style.display = 'block';
+        function viewCart() {
+            if (cart.length === 0) {
+                alert('Your cart is empty.');
             } else {
-                product.style.display = 'none';
-            }
-        });
-    });
-
-    // Add to Cart functionality
-    function addCartFunctionality() {
-        const cartContainer = document.querySelector('.cart-container');
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const product = button.parentElement;
-                const productName = product.querySelector('h3').innerText;
-                const productPrice = product.querySelector('p').innerText;
-
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `
-                    <p>${productName} - ${productPrice}</p>
-                    <button class="remove-item">Remove</button>
-                `;
-
-                cartContainer.appendChild(cartItem);
-
-                // Remove item functionality
-                cartItem.querySelector('.remove-item').addEventListener('click', () => {
-                    cartContainer.removeChild(cartItem);
+                let cartDetails = 'Your Cart:\n';
+                cart.forEach((item, index) => {
+                    cartDetails += `${index + 1}. ${item.name} - $${item.price}\n`;
                 });
-            });
-        });
-    }
+                alert(cartDetails);
+            }
+        }
 
-    // Initial fetch of products
-    fetchProducts();
-});
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add some products to proceed.');
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            const confirmation = confirm(`Your total is $${total}. Proceed to payment?`);
+            if (confirmation) {
+                alert('Payment successful! Thank you for shopping with ShopSphere.');
+                cart = [];
+            }
+        }
