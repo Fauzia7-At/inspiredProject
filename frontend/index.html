@@ -3,89 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Zappos Inspired Store</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ShopSphere - Trendy Online Store</title>
+    <link rel="stylesheet" href="styles/style.css">
+   <link rel="JavaScript" href="scripts/script.js">
 </head>
+
 <body>
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="ShopSphere Logo">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK2BwPW7CSclK7gV1TdysqH210oj3u11lxGQ&s" alt="ShopSphere Logo">
+            <h1>ShopSphere</h1>
         </div>
-        <nav class="navbar">
-            <ul class="nav-links">
+        <nav>
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Shop All</a></li>
                 <li><a href="cart.html">Cart</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search for products...">
-                <button>Search</button>
-            </div>
         </nav>
     </header>
 
     <main>
-        <section id="featured-products" class="product-list">
+        <section class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for products...">
+            <button onclick="searchProducts()">Search</button>
+            <div class="category">
+                <ul>
+                <li><a href="products.html">New</a>
+                    <div class="dropdown">
+                        <ul>
+                            <li>
+                                <a href="#">By Category</a>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li><a href="#">Clothing</a></li>
+                                        <li><a href="#">Bags</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#">New Brands</a>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li><a href="#">Allbirds</a></li>
+                                        <li><a href="#">Free Fly</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>  
+                </li>
+                <li><a href="products.html">Women</a></li>
+                <li><a href="products.html">Men</a></li>
+                <li><a href="products.html">Kids</a></li>
+                <li><a href="products.html">Collections</a></li>
+                <li><a href="products.html">Brands</a></li>
+                <li><a href="products.html">Sale</a></li>
+                <li><a href="products.html">Activities</a></li>
+            </ul>
+            </div>
+        </section>
+
+        <section class="hero">
+            <h2>Welcome to ShopSphere</h2>
+            <p>Your one-stop destination for trendy and quality products!</p>
+            <button onclick="window.location.href='products.html'">Shop Now</button>
+        </section>
+
+        <section class="featured-products">
             <h2>Featured Products</h2>
-            <div class="products-container">
-                <!-- 8 Featured Products -->
+            <div class="product-list" id="product-list">
                 <div class="product">
-                    <img src="images/shoe1.jpg" alt="Running Shoes">
-                    <h3>Running Shoes</h3>
-                    <p>$50</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <img src="images/product1.jpg" alt="Product 1">
+                    <h3>Stylish Sneakers</h3>
+                    <p>$75.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Stylish Sneakers', 75)">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/shirt1.jpg" alt="Casual Shirt">
-                    <h3>Casual Shirt</h3>
-                    <p>$30</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <img src="images/product2.jpg" alt="Product 2">
+                    <h3>Casual T-Shirt</h3>
+                    <p>$25.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Casual T-Shirt', 25)">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/watch1.jpg" alt="Wrist Watch">
-                    <h3>Wrist Watch</h3>
-                    <p>$80</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <img src="images/product3.jpg" alt="Product 3">
+                    <h3>Elegant Watch</h3>
+                    <p>$150.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Elegant Watch', 150)">Add to Cart</button>
                 </div>
                 <div class="product">
-                    <img src="images/shoe2.jpg" alt="Sports Shoes">
-                    <h3>Sports Shoes</h3>
-                    <p>$60</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/hat1.jpg" alt="Baseball Cap">
-                    <h3>Baseball Cap</h3>
-                    <p>$25</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/bag1.jpg" alt="Travel Bag">
-                    <h3>Travel Bag</h3>
-                    <p>$100</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/sunglasses1.jpg" alt="Sunglasses">
-                    <h3>Sunglasses</h3>
-                    <p>$40</p>
-                    <button class="add-to-cart">Add to Cart</button>
-                </div>
-                <div class="product">
-                    <img src="images/jacket1.jpg" alt="Winter Jacket">
-                    <h3>Winter Jacket</h3>
-                    <p>$120</p>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <img src="images/product4.jpg" alt="Product 4">
+                    <h3>Classic Backpack</h3>
+                    <p>$55.00</p>
+                    <button class="add-to-cart" onclick="addToCart('Classic Backpack', 55)">Add to Cart</button>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Zappos-Style Store. All rights reserved.</p>
+        <p>&copy; 2025 ShopSphere. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+        </ul>
     </footer>
 </body>
-<script src="./script.js"></script>
-</html>
